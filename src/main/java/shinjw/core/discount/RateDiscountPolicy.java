@@ -1,8 +1,10 @@
 package shinjw.core.discount;
 
+import org.springframework.stereotype.Component;
 import shinjw.core.member.Grade;
 import shinjw.core.member.Member;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private final int discountPercent = 10;

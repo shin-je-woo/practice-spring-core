@@ -1,12 +1,12 @@
 package shinjw.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import shinjw.core.discount.DiscountPolicy;
-import shinjw.core.discount.FixDiscountPolicy;
-import shinjw.core.discount.RateDiscountPolicy;
 import shinjw.core.member.Member;
 import shinjw.core.member.MemberRepository;
-import shinjw.core.member.MemoryMemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
@@ -14,6 +14,7 @@ public class OrderServiceImpl implements OrderService {
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
