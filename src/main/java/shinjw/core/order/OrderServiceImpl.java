@@ -2,6 +2,7 @@ package shinjw.core.order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import shinjw.core.annotation.MainDiscountPolicy;
 import shinjw.core.discount.DiscountPolicy;
 import shinjw.core.member.Member;
 import shinjw.core.member.MemberRepository;
@@ -13,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
